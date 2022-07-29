@@ -12,7 +12,7 @@ const Card = ({ name, phone, email, image, favored}) => {
     }
 
     return(
-        <div className="card">
+        <article className="card">
             <div className="card-header">
                 <img src={image.url} alt={image.alt} className='card-img'/>
                 <button
@@ -36,7 +36,7 @@ const Card = ({ name, phone, email, image, favored}) => {
                 <p>{phone}</p>
                 <p>{email}</p>
             </div>
-        </div>
+        </article>
     )
 }
 
