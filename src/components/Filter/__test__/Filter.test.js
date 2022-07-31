@@ -4,7 +4,7 @@ import Filter from '../Filter'
 
 describe('Filter', () => {
     test('should be able to change value of favorite select', () => {
-        render (<Filter />)
+        render (<Filter filters={{}} setFilters={() => {}}/>)
 
         const select = screen.getByLabelText(/favorite/i)
 
@@ -17,7 +17,7 @@ describe('Filter', () => {
     })
 
     test('should be able to change value of gender select', () => {
-        render (<Filter />)
+        render (<Filter filters={{}} setFilters={() => {}}/>)
 
         const select = screen.getByLabelText(/gender/i)
 
