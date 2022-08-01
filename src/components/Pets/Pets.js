@@ -1,8 +1,13 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, createContext } from 'react'
 import './Pets.css'
 import Filter from '../Filter/Filter'
 import PetCards from '../Cards/Cards'
 import axios from 'axios'
+
+export const PetsContext = createContext({
+    cats: [],
+    setCats: () => {}
+})
 
 const Pets = () => {
     const [cats, setCats] = useState([])
@@ -37,8 +42,10 @@ const Pets = () => {
     return(
         <div className="container">
             <div className="app-container">
-                <Filter filters={filters} setFilters={setFilters}/>
-                <PetCards cats={filteredCats} setCats={setCats}/>
+                <PetsContext.Provider value={{ cats: filteredCats, setCats}}>
+                    <Filter filters={filters} setFilters={setFilters}/>
+                    <PetCards />
+                </PetsContext.Provider>
             </div>
         </div>
     )

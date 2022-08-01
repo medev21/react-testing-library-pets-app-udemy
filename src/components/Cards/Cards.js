@@ -1,13 +1,13 @@
+import { useContext } from 'react'
 import Card from '../Card/Card'
+import { PetsContext } from '../Pets/Pets'
 import './Cards.css'
 
-const Cards = ({ cats, setCats }) => {
+const Cards = () => {
 
-    const updateFavorite = (index, favored) => {
-        const updateCats = [...cats]
-        updateCats[index].favored = favored
-        setCats(updateCats)
-    }
+    const { cats } = useContext(PetsContext)
+
+    
     return(
         <div className="pet-cards-container">
             {cats.map((cat, index)=> {
@@ -18,7 +18,6 @@ const Cards = ({ cats, setCats }) => {
                     email={cat.email}
                     image={cat.image}
                     favored={cat.favored}
-                    updateFavorite={updateFavorite}
                     index={index}
                 />
             })}
